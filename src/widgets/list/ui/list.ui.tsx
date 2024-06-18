@@ -7,13 +7,17 @@ import { favouriteStore, useGetMoviesHook } from "@/entities/movie";
 
 import { ResponseProps } from "@/entities/movie";
 
+interface DocsData {
+  docs: ResponseProps;
+}
+
 export const List = observer(() => {
   const { data, isLoading } = useGetMoviesHook();
   const location = useLocation();
   if (isLoading) return <p>loading....</p>;
-  const docs = data && "docs" in data ? data.docs : [];
+  const response = data as DocsData;
   const dataForRender =
-    location.pathname === "/" ? docs : favouriteStore.favourites;
+    location.pathname === "/" ? response : favouriteStore.favourites;
 
   return (
     <section className={styles.list}>
