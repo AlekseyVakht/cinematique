@@ -53,7 +53,7 @@ class Api {
 export const api = new Api({
   baseUrl: import.meta.env.VITE_BASE_URL,
   headers: {
-    "X-API-KEY": import.meta.env.VITE_API_KEY,
+    "X-API-KEY": import.meta.env.VITE_API,
     "Content-Type": "application/json",
   },
 });
