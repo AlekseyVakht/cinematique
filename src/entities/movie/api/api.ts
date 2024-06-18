@@ -16,7 +16,7 @@ class Api {
   }
 
   async getMovies<T>(page = 1): Promise<T> {
-    const response = await axios.get(
+    const response = await axios.get<T>(
       `${this._baseUrl}/movie?page=${page}&limit=50&isSeries=false&notNullFields=name&lists=top250`,
       {
         headers: this._headers,

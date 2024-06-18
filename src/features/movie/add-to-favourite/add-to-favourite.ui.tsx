@@ -9,20 +9,14 @@ export const AddToFavourite = observer(function AddToFavourite({
 }: {
   data: ResponseProps;
 }) {
-  const {
-    id,
-    name,
-    rating: { kp },
-    year,
-    poster,
-  } = data;
+  const { id } = data;
   const isLiked = favouriteStore.favourites.some(
     (item: ResponseProps) => item.id === id,
   );
 
-  const handleClick = (event) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
-    favouriteStore.changeFavourite({ id, name, rating: { kp }, year, poster });
+    favouriteStore.changeFavourite(data);
   };
   return (
     <Button onClick={handleClick}>

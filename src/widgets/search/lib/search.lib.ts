@@ -1,9 +1,18 @@
 import queryString from "query-string";
+import { SubmitData } from "@/shared/model";
 
-export const filterByParams = (data) => {
-  const queryParams = {};
+interface Query {
+  "genres.name"?: string[];
+  "rating.kp"?: string;
+  year?: string;
+  query?: string;
+}
+
+export const filterByParams = (data: SubmitData) => {
+  const queryParams: Query = {};
   if (data.genre) {
     queryParams["genres.name"] = data.genre;
+    console.log(queryParams["genres.name"]);
     // if (data.genre.length === 1) {
     //   queryParams["genres.name"] = data.genre;
     // } else {
