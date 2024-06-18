@@ -1,0 +1,20 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.heading {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  @include constructor(var(--shoulders-extralight));
+}
+
+.link {
+  text-decoration: none;
+}
+
+.default {
+  font-size: 48px;
+}
+
+.small {
+  font-size: 24px;
+}

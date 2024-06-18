@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  src: url("./Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Semibold";
+  font-weight: 600;
+  src: url("./Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-ExtraLight";
+  src: url("./Montserrat/Montserrat-VariableFont_wght.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "BigShoulders-ExtraLight";
+  font-weight: 200;
+  src: url("./BigShoulders/BigShouldersDisplay-VariableFont_wght.ttf");
+}
+
+@mixin constructor($font, $size: 24px, $color: white, $height: 1) {
+  font-family: $font;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}
