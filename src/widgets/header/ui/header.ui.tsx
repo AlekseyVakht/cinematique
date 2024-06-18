@@ -1,11 +1,15 @@
-import styles from "./header.module.scss";
 import { useLocation } from "react-router-dom";
+
+import { GoBack } from "@/features/routing";
+
 import { Logo } from "@/shared/ui/text-logo";
-import { GoBack } from "@/features/pagination/go-back/go-back.ui";
 import { LinkTab } from "@/shared/ui/link";
+
+import styles from "./header.module.scss";
 
 export function Header() {
   const location = useLocation();
+
   return (
     <header className={styles.header}>
       <Logo size="default" />

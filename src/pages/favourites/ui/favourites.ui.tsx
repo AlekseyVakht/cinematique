@@ -1,8 +1,9 @@
 import { observer } from "mobx-react-lite";
-import { favouriteStore } from "@/entities/movie";
 
 import { List } from "@/widgets/list";
 import { Error } from "@/widgets/error";
+
+import { favouriteStore } from "@/shared/model";
 
 const RenderSection = () =>
   favouriteStore.favourites.length === 0 ? (

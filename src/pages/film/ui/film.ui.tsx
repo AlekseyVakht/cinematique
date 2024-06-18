@@ -1,8 +1,11 @@
 import { useLocation } from "react-router-dom";
-import { ResponseProps, useGetMovieById } from "@/entities/movie";
+
+import { FilmCard } from "@/widgets/film-card";
+
+import { ResponseProps } from "@/shared/model";
+import { useGetMovieById } from "@/shared/lib";
 
 import styles from "./film.module.scss";
-import { FilmCard } from "@/widgets/film-card";
 
 export const Film = () => {
   const { state } = useLocation();

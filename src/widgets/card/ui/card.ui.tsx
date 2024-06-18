@@ -1,13 +1,13 @@
 import { observer } from "mobx-react-lite";
-import styles from "./card.module.scss";
 
-import { getRating } from "@/shared/lib/get-rating";
-
-import { ResponseProps } from "@/entities/movie";
-
-import { Rating } from "@/shared/ui/rating";
 import { AddToFavourite } from "@/features/movie";
 import { ExpandInfo } from "@/features/movie";
+
+import { Rating } from "@/shared/ui/rating";
+import { ResponseProps } from "@/shared/model";
+import { getRating } from "@/shared/lib";
+
+import styles from "./card.module.scss";
 
 export const Card = observer(({ film }: { film: ResponseProps }) => {
   const {
@@ -17,9 +17,13 @@ export const Card = observer(({ film }: { film: ResponseProps }) => {
     year,
     poster,
   } = film;
+
   return (
     <div className={styles.card}>
-      <Rating value={getRating(kp)} />
+      <div className={styles.rating}>
+        <Rating value={getRating(kp)} />
+      </div>
+
       <div className={styles.poster_container}>
         <ExpandInfo id={id}>
           <img src={poster?.url} className={styles.poster} alt={name} />

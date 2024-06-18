@@ -1,39 +1,39 @@
 import { makeAutoObservable } from "mobx";
-import { ResponseProps } from "./response-types";
+import { ResponseProps } from "../types";
 
 class FavouriteStore {
-  favourites = this._loadFavourites();
+  favourites = this.loadFavourites();
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  changeFavourite(movie: ResponseProps) {
+  public changeFavourite(movie: ResponseProps) {
     if (!this.favourites.some((item: { id: number }) => item.id === movie.id)) {
-      this._addToFavourite(movie);
+      this.addToFavourite(movie);
     } else {
-      this._removeToFavourite(movie);
+      this.removeToFavourite(movie);
     }
   }
 
-  _loadFavourites() {
+  private loadFavourites() {
     const favourites = localStorage.getItem("favourites");
     return favourites ? JSON.parse(favourites) : [];
   }
 
-  _addToFavourite(movie: ResponseProps) {
+  private addToFavourite(movie: ResponseProps) {
     this.favourites.push(movie);
-    this._saveFavourite();
+    this.saveFavourite();
   }
 
-  _removeToFavourite(movie: ResponseProps) {
+  private removeToFavourite(movie: ResponseProps) {
     this.favourites = this.favourites.filter(
       (item: { id: number }) => item.id !== movie.id,
     );
-    this._saveFavourite();
+    this.saveFavourite();
   }
 
-  _saveFavourite() {
+  private saveFavourite() {
     localStorage.setItem("favourites", JSON.stringify(this.favourites));
   }
 }

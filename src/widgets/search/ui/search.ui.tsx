@@ -1,21 +1,24 @@
-import styles from "./search.module.scss";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { GENRES } from "@/shared/lib";
 
-import { FiltersPopup } from "@/shared/ui/filters-popup";
-import { Selector } from "@/shared/ui/inputs/selector";
-import { GenreButton } from "@/shared/ui/genre";
+import { SearchInput } from "@/shared/ui/inputs/search";
 import { Button } from "@/shared/ui/button";
 import { Icon } from "@/shared/ui/icon";
-import { SearchInput } from "@/shared/ui/inputs/search";
+import { GenreButton } from "@/shared/ui/genre";
+import { FiltersPopup } from "@/shared/ui/filters-popup";
+import { Selector } from "@/shared/ui/inputs/selector";
 
-import { useGetMoviesByParams } from "@/entities/movie";
-
+import {
+  dateGenerator,
+  ratingGenerator,
+  useGetMoviesByParams,
+} from "@/shared/lib";
+import { GENRES } from "@/shared/lib";
 import { filterByParams } from "../lib/search.lib";
-import { dateGenerator, ratingGenerator } from "@/shared/lib";
 
 import { SubmitData } from "@/shared/model";
+
+import styles from "./search.module.scss";
 
 export function Search() {
   const [isOpened, setIsOpened] = useState(false);

@@ -17,8 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/favourites" element={<Favourites />} />
-          <Route path="/film/:cardId" element={<Film />}></Route>
-          <Route path="*" element={<Page404 />}></Route>
+          <Route path="/film/:cardId" element={<Film />} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
         <Footer />
       </div>

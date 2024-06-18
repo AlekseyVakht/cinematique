@@ -1,6 +1,7 @@
-import styles from "./error.module.scss";
 import { ErrorText } from "@/shared/ui/error-text";
 import { LinkTab } from "@/shared/ui/link";
+
+import styles from "./error.module.scss";
 
 type ErrorProps = {
   text: string;

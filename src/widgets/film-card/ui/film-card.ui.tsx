@@ -1,8 +1,13 @@
+import { observer } from "mobx-react-lite";
+
 import { ResponseProps } from "@/entities/movie";
 
 import { AddToFavourite } from "@/features/movie";
+
+import { Rating } from "@/shared/ui/rating";
+import { getRating } from "@/shared/lib";
+
 import styles from "./film-card.module.scss";
-import { observer } from "mobx-react-lite";
 
 export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
   const {
@@ -14,7 +19,6 @@ export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
     movieLength,
     genres,
   } = data;
-  console.log(kp);
   return (
     <div className={styles.card}>
       <div className={styles.content}>
@@ -22,6 +26,7 @@ export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
         <div className={styles.base_info}>
           <div className={styles.info}>
             <p>{year}</p>
+            <Rating value={getRating(kp)} />
           </div>
           <div className={styles.info}>
             {genres.map((item: { name: string }) => (
