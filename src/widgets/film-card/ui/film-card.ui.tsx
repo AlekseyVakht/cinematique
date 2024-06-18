@@ -22,7 +22,6 @@ export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
         <div className={styles.base_info}>
           <div className={styles.info}>
             <p>{year}</p>
-            <p>Кристофер Нолан</p>
           </div>
           <div className={styles.info}>
             {genres.map((item: { name: string }) => (
