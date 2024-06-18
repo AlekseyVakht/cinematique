@@ -1,6 +1,6 @@
 import styles from "./search.module.scss";
 import { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { GENRES } from "@/shared/lib";
 
 import { FiltersPopup } from "@/shared/ui/filters-popup";
@@ -15,10 +15,12 @@ import { useGetMoviesByParams } from "@/entities/movie";
 import { filterByParams } from "../lib/search.lib";
 import { dateGenerator, ratingGenerator } from "@/shared/lib";
 
+import { SubmitData } from "@/shared/model";
+
 export function Search() {
   const [isOpened, setIsOpened] = useState(false);
   const [query, setQuery] = useState("");
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm<SubmitData>();
 
   const { data, isLoading } = useGetMoviesByParams(query);
 
@@ -28,7 +30,7 @@ export function Search() {
     setIsOpened(!isOpened);
   };
 
-  const onSubmit = (data: SubmitHandler) => {
+  const onSubmit = (data: SubmitData) => {
     setQuery(filterByParams(data));
     console.log(data);
     setIsOpened(false);

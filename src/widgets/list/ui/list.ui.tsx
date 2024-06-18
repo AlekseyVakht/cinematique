@@ -11,7 +11,7 @@ export const List = observer(() => {
   const { data, isLoading } = useGetMoviesHook();
   const location = useLocation();
   if (isLoading) return <p>loading....</p>;
-  const { docs } = data;
+  const docs = data && "docs" in data ? data.docs : [];
   const dataForRender =
     location.pathname === "/" ? docs : favouriteStore.favourites;
 

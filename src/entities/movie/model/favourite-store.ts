@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { ResponseProps } from "./types";
 
 class FavouriteStore {
   favourites = this._loadFavourites();
@@ -7,7 +8,7 @@ class FavouriteStore {
     makeAutoObservable(this);
   }
 
-  changeFavourite(movie: { id: number }) {
+  changeFavourite(movie: ResponseProps) {
     if (!this.favourites.some((item: { id: number }) => item.id === movie.id)) {
       this._addToFavourite(movie);
     } else {
@@ -20,12 +21,12 @@ class FavouriteStore {
     return favourites ? JSON.parse(favourites) : [];
   }
 
-  _addToFavourite(movie: unknown) {
+  _addToFavourite(movie: ResponseProps) {
     this.favourites.push(movie);
     this._saveFavourite();
   }
 
-  _removeToFavourite(movie: { id: number }) {
+  _removeToFavourite(movie: ResponseProps) {
     this.favourites = this.favourites.filter(
       (item: { id: number }) => item.id !== movie.id,
     );

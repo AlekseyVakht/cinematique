@@ -1,10 +1,12 @@
 import { forwardRef } from "react";
-import { UseFormRegister, FieldValues } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 import styles from "./genre.module.scss";
+
+import { SubmitData } from "@/shared/model";
 
 type GenreButtonProps = {
   text: string;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<SubmitData>;
 };
 
 export const GenreButton = forwardRef(function GenreButton(
