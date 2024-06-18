@@ -1,0 +1,19 @@
+@use "@/shared/ui/globals/filter-tab-styles.scss" as *;
+
+.custom-select {
+  display: flex;
+  gap: 20px;
+  select {
+    cursor: pointer;
+    appearance: none;
+    --webkit-appearance: none;
+    @include base-tab();
+    option {
+      background-color: var(--widget-background);
+    }
+    transition: background-color 0.3s ease;
+    &:focus {
+      outline: none;
+    }
+  }
+}

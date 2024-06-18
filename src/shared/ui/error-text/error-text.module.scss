@@ -1,0 +1,5 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.text {
+  @include constructor(var(--montserrat-extralight), 26px);
+}

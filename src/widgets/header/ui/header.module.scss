@@ -1,0 +1,29 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.header {
+  position: relative;
+  min-height: 100px;
+  padding-top: 50px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  text-transform: uppercase;
+  @include constructor(var(--shoulders-extralight), 48px);
+}
+
+.navigation {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.back {
+  position: absolute;
+  left: 0;
+}

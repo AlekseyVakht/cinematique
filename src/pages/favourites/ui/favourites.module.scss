@@ -1,0 +1,13 @@
+.list {
+  margin: 50px auto 0;
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, 260px);
+  list-style: none;
+  padding: 0;
+}
+
+.favourites {
+  height: 50vh;
+}

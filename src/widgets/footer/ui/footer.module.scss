@@ -1,0 +1,17 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.footer {
+  margin: 50px auto 0;
+  min-height: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+}
+
+.year {
+  @include constructor(var(--montserrat-extralight), 10px);
+}

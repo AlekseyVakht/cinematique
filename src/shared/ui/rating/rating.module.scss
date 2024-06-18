@@ -1,0 +1,16 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.container {
+  background-color: var(--widget-background);
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  z-index: 4;
+  @include constructor(var(--montserrat-extralight), 20px);
+}
