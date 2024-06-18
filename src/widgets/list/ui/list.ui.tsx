@@ -8,21 +8,22 @@ import { favouriteStore, useGetMoviesHook } from "@/entities/movie";
 import { ResponseProps } from "@/entities/movie";
 
 interface DocsData {
-  docs: ResponseProps;
+  docs: ResponseProps[];
 }
 
 export const List = observer(() => {
   const { data, isLoading } = useGetMoviesHook();
   const location = useLocation();
   if (isLoading) return <p>loading....</p>;
-  const response = data as DocsData;
+  const { docs } = data as DocsData;
+
   const dataForRender =
-    location.pathname === "/" ? response : favouriteStore.favourites;
+    location.pathname === "/" ? docs : favouriteStore.favourites;
 
   return (
     <section className={styles.list}>
       <ul className={styles.grid}>
-        {dataForRender.map((item: ResponseProps) => (
+        {dataForRender?.map((item: ResponseProps) => (
           <Card key={item.id} film={item} />
         ))}
       </ul>
