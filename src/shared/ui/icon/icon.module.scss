@@ -1,0 +1,29 @@
+.icon {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  fill: var(--base-ui-color);
+  transition: all 0.3s ease;
+  &:hover {
+    fill: var(--base-ui-color-active);
+  }
+}
+
+.active {
+  fill: var(--base-ui-color-active);
+}
+
+.default-size {
+  width: 24px;
+  height: 24px;
+}
+
+.big-size {
+  width: 36px;
+  height: 36px;
+}
+
+.small-size {
+  width: 12px;
+  height: 12px;
+}

@@ -1,0 +1,19 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  @include constructor(
+    var(--montserrat-extralight),
+    18px,
+    var(--base-ui-color)
+  );
+  transition: color 0.3s ease;
+  &:hover {
+    color: var(--base-ui-color-active);
+  }
+}
+
+.active {
+  color: var(--base-ui-color-active);
+}

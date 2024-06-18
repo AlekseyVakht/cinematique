@@ -1,0 +1,11 @@
+[data-theme="dark"] {
+  --background: radial-gradient(
+    circle at 10% 20%,
+    rgb(69, 86, 102) 0%,
+    rgb(34, 34, 34) 90%
+  );
+  --card-background: #0d0d0d;
+  --widget-background: #333333;
+  --base-ui-color: rgba(211, 211, 211, 0.5);
+  --base-ui-color-active: rgba(211, 211, 211, 1);
+}

@@ -1,0 +1,20 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.base {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.button {
+  box-sizing: border-box;
+  width: 120px;
+  height: 42px;
+  border-radius: 32px;
+  border: 1px solid var(--base-ui-color);
+  @include constructor(var(--montserrat-regular), 12px);
+}

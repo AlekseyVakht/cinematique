@@ -1,0 +1,19 @@
+.list {
+  margin: 50px auto 0;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  margin: 0;
+  grid-template-columns: repeat(auto-fill, 260px);
+  list-style: none;
+  padding: 0;
+}
+
+.more {
+  margin: 36px auto 0;
+  display: flex;
+  justify-content: center;
+}

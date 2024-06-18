@@ -1,0 +1,21 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+
+.search {
+  @include constructor(var(--montserrat-extralight), 20px);
+  box-sizing: border-box;
+  padding: 4px 52px 4px 12px;
+  height: 42px;
+  width: 100%;
+  background-color: transparent;
+  background-clip: border-box;
+  border: 1px solid var(--base-ui-color);
+  border-radius: 32px;
+  box-shadow: none;
+  transition: all 0.3s ease-in;
+  z-index: 2;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--base-ui-color);
+    border-color: var(--base-ui-color-active);
+  }
+}
