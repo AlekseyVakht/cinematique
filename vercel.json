@@ -1,0 +1,7 @@
+{
+  "builds": [{ "src": "build", "use": "@vercel/static-build" }],
+  "env": {
+    "VITE_API": "https://api.example.com",
+    "VITE_BASE_URL": "your_api_key"
+  }
+}
