@@ -1,10 +1,10 @@
 import { ReactNode, useEffect } from "react";
-import styles from "./filters-popup.module.scss";
-
 import clsx from "clsx";
 import { observer } from "mobx-react-lite";
 
 import { popupStore } from "@/shared/model/store";
+
+import styles from "./filters-popup.module.scss";
 
 type FiltersProps = {
   children: ReactNode;

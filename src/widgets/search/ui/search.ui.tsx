@@ -8,7 +8,7 @@ import { SearchInput } from "@/shared/ui/inputs/search";
 import { Button } from "@/shared/ui/button";
 import { Icon } from "@/shared/ui/icon";
 
-import { SubmitData } from "@/shared/model";
+import { SubmitSearchData } from "@/shared/model";
 
 import { popupStore, queryStore } from "@/shared/model/store";
 
@@ -21,13 +21,13 @@ export const Search = observer(() => {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(searchSchema) });
+  } = useForm<SubmitSearchData>({ resolver: yupResolver(searchSchema) });
 
   const handleClick = () => {
     popupStore.changeIsOpened();
   };
 
-  const onSubmit = (data: SubmitData) => {
+  const onSubmit = (data: SubmitSearchData) => {
     const query = queryString.stringify({ query: data.name });
     queryStore.setQuery(query);
     queryStore.setKey("byName");
@@ -38,7 +38,7 @@ export const Search = observer(() => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
-      <SearchInput register={register} placeholder={errors.name?.message} />
+      <SearchInput register={register} error={errors.name?.message} />
       <div className={styles.controls}>
         <Button onClick={handleClick}>
           <Icon img="filters" active={popupStore.isOpened} />

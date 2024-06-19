@@ -3,11 +3,11 @@
 .text {
   text-align: center;
   @include constructor(var(--montserrat-extralight), 26px);
-  @media screen and (max-width: 650px) {  
+  @media screen and (max-width: 650px) {
     font-size: 22px;
     width: var(--medium-width);
   }
-  @media screen and (max-width: 430px) {  
+  @media screen and (max-width: 430px) {
     font-size: 18px;
     width: var(--mobile-width);
   }

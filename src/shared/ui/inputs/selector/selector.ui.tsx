@@ -2,17 +2,17 @@ import { forwardRef } from "react";
 import { UseFormRegister } from "react-hook-form";
 import styles from "./selector.module.scss";
 
-import { SubmitData } from "@/shared/model";
+import { SubmitFiltersData } from "@/shared/model";
 
-interface SelectorProps {
+type SelectorProps = {
   options: Array<string | number>;
   data: string;
-  register: UseFormRegister<SubmitData>;
-}
+  register: UseFormRegister<SubmitFiltersData>;
+};
 
 export const Selector = forwardRef(function Selector(
   { options, data, register }: SelectorProps,
-  ref,
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   return (
     <select className={styles.selection} ref={ref} {...register(data)}>

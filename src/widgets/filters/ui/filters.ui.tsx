@@ -1,7 +1,7 @@
 import styles from "./filters.module.scss";
 
 import { queryStore, popupStore } from "@/shared/model";
-import { SubmitData } from "@/shared/model";
+import { SubmitFiltersData } from "@/shared/model";
 import { FiltersPopup } from "@/shared/ui/filters-popup";
 import { Selector } from "@/shared/ui/inputs/selector";
 import { GenreButton } from "@/shared/ui/genre";
@@ -23,7 +23,7 @@ export const Filters = observer(() => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<SubmitFiltersData>({
     resolver: yupResolver(filterSchema),
   });
 
@@ -31,7 +31,7 @@ export const Filters = observer(() => {
     reset();
   };
 
-  const onSubmit = (data: SubmitData) => {
+  const onSubmit = (data: SubmitFiltersData) => {
     queryStore.setQuery(filterByParams(data));
     queryStore.setKey("filtered");
     console.log(queryStore.query);

@@ -11,7 +11,7 @@ type GenreButtonProps = {
 
 export const GenreButton = forwardRef(function GenreButton(
   { text, register }: GenreButtonProps,
-  ref,
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   return (
     <label className={styles["custom-checkbox"]}>
