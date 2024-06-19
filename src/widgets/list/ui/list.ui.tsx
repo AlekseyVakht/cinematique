@@ -22,7 +22,6 @@ export const List = observer(() => {
     useGetMovies({ key: queryStore.key, query: queryStore.query });
 
   if (isLoading) return <Loader />;
-  console.log(data);
 
   const content = (data?.pages as Page[]).map((page) => {
     return page.docs.map((film: ResponseProps) => (
