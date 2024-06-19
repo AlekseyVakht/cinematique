@@ -38,7 +38,7 @@ export const Search = observer(() => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
-      <SearchInput register={register} error={errors.name?.message} />
+      <SearchInput {...register("name")} error={errors.name?.message} />
       <div className={styles.controls}>
         <Button onClick={handleClick}>
           <Icon img="filters" active={popupStore.isOpened} />

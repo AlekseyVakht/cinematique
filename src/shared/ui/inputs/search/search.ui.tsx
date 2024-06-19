@@ -1,19 +1,15 @@
 import { forwardRef } from "react";
-import { UseFormRegister } from "react-hook-form";
 import styles from "./search.module.scss";
-
-import { SubmitSearchData } from "@/shared/model";
 
 type SearchProps = {
   error?: string;
-  register: UseFormRegister<SubmitSearchData>;
 };
 
 export const SearchInput = forwardRef(function SearchInput(
   props: SearchProps,
-  ref,
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) {
-  const { register, error } = props;
+  const { error, ...other } = props;
   return (
     <input
       className={styles.search}
@@ -21,7 +17,7 @@ export const SearchInput = forwardRef(function SearchInput(
       type="text"
       placeholder={error}
       ref={ref}
-      {...register("name")}
+      {...other}
     />
   );
 });

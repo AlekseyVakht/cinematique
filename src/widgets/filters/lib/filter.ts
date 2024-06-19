@@ -11,11 +11,6 @@ export const filterByParams = (data: SubmitFiltersData) => {
   const queryParams: Query = {};
   if (data.genre) {
     queryParams["genres.name"] = data.genre;
-    // if (data.genre.length === 1) {
-    //   queryParams["genres.name"] = data.genre;
-    // } else {
-    //   queryParams["genres.name"] = data.genre.map((item) => `+${item}`);
-    // }
   }
   if (data.startYear && data.endYear) {
     queryParams.year = `${data.startYear}-${data.endYear}`;
