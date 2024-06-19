@@ -7,6 +7,8 @@ import { Rating } from "@/shared/ui/rating";
 import { ResponseProps } from "@/shared/model";
 import { getRating } from "@/shared/lib";
 
+import noImagePath from "@/shared/assets/images/no-image.png";
+
 import styles from "./card.module.scss";
 
 export const Card = observer(({ film }: { film: ResponseProps }) => {
@@ -26,7 +28,11 @@ export const Card = observer(({ film }: { film: ResponseProps }) => {
 
       <div className={styles.poster_container}>
         <ExpandInfo id={id}>
-          <img src={poster?.url} className={styles.poster} alt={name} />
+          <img
+            src={poster?.url ? poster.url : noImagePath}
+            className={styles.poster}
+            alt={name}
+          />
         </ExpandInfo>
       </div>
 
