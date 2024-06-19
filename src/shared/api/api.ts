@@ -42,16 +42,19 @@ class Api {
   }
 
   async getMovieByParams<T>({ pageParam, filters }: RequestArgs): Promise<T> {
-    const response = await axios.get(`${this._baseUrl}/movie?${filters}`, {
-      params: { page: pageParam },
-      headers: this._headers,
-    });
+    const response = await axios.get(
+      `${this._baseUrl}/movie?${filters}&limit=50`,
+      {
+        params: { page: pageParam },
+        headers: this._headers,
+      },
+    );
     return response.data;
   }
 
   async getMovieByName<T>({ pageParam, queryParam }: RequestArgs): Promise<T> {
     const response = await axios.get(
-      `${this._baseUrl}/movie/search?${queryParam}`,
+      `${this._baseUrl}/movie/search?${queryParam}&limit=50`,
       {
         params: { page: pageParam },
         headers: this._headers,
