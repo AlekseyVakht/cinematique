@@ -14,7 +14,7 @@
   transition: all 0.3s ease-in;
   z-index: 2;
   &::placeholder {
-    color: var(--base-ui-color)
+    color: var(--base-ui-color);
   }
   &:focus {
     outline: none;
