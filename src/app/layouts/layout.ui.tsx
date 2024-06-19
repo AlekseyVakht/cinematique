@@ -6,7 +6,7 @@ import { Main } from "@/pages/main";
 import { Header } from "@/widgets/header";
 import { Film } from "@/pages/film";
 import { Favourites } from "@/pages/favourites";
-import { Page404 } from "@/pages/page-404";
+import { Page404 } from "@/widgets/page-404";
 import { Footer } from "@/widgets/footer";
 
 function App() {

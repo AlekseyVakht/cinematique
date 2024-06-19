@@ -48,7 +48,7 @@ export const Filters = observer(() => {
         <p className={styles.label}>Выбери жанр (или жанры)</p>
         <div className={styles.filters}>
           {GENRES.map((item) => (
-            <GenreButton register={register} key={item} text={item} />
+            <GenreButton {...register("genre")} key={item} text={item} />
           ))}
         </div>
       </div>
@@ -57,13 +57,13 @@ export const Filters = observer(() => {
           <p className={styles.label}>Выбери годы</p>
           <div className={styles.items}>
             <Selector
-              register={register}
+              {...register("startYear")}
               options={dateGenerator()}
               data="startYear"
             />
             <div className={styles.separator}></div>
             <Selector
-              register={register}
+              {...register("endYear")}
               options={dateGenerator().reverse()}
               data="endYear"
             />
@@ -76,13 +76,13 @@ export const Filters = observer(() => {
           <p className={styles.label}>Выбери рейтинг</p>
           <div className={styles.items}>
             <Selector
-              register={register}
+              {...register("startRating")}
               options={ratingGenerator()}
               data="startRating"
             />
             <div className={styles.separator}></div>
             <Selector
-              register={register}
+              {...register("endRating")}
               options={ratingGenerator()}
               data="endRating"
             />

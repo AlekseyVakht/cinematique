@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { SubmitData } from "@/shared/model";
+import { SubmitFiltersData } from "@/shared/model";
 
 interface Query {
   "genres.name"?: string[];
@@ -7,7 +7,7 @@ interface Query {
   year?: string;
 }
 
-export const filterByParams = (data: SubmitData) => {
+export const filterByParams = (data: SubmitFiltersData) => {
   const queryParams: Query = {};
   if (data.genre) {
     queryParams["genres.name"] = data.genre;

@@ -45,9 +45,6 @@ export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
           </div>
         </div>
         <p className={styles.description}>{description}</p>
-        {/* <div className={styles.controls}>
-          
-        </div> */}
       </div>
       <div className={styles.poster_container}>
         <img

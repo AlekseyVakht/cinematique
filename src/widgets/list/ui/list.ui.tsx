@@ -7,9 +7,10 @@ import { ResponseProps, favouriteStore } from "@/shared/model";
 import { useGetMovies } from "@/shared/lib";
 import { Loader } from "@/shared/ui/loader";
 
-import { Page404 } from "@/pages/page-404";
-
 import { Page } from "@/shared/model";
+
+import { Page404 } from "@/widgets/page-404";
+
 import { queryStore } from "@/shared/model";
 
 import styles from "./list.module.scss";
@@ -21,8 +22,9 @@ export const List = observer(() => {
     useGetMovies({ key: queryStore.key, query: queryStore.query });
 
   if (isLoading) return <Loader />;
+  console.log(data);
 
-  const content = data?.pages.map((page: Page) => {
+  const content = (data?.pages as Page[]).map((page) => {
     return page.docs.map((film: ResponseProps) => (
       <Card key={film.id} film={film} />
     ));
@@ -49,7 +51,7 @@ export const List = observer(() => {
   const RenderContent = () => {
     return (
       <>
-        {content[0].length !== 0 ? (
+        {content && content[0].length !== 0 ? (
           <section className={styles.list}>
             <ul className={styles.grid}>{dataForRender}</ul>
             <MoreButton />

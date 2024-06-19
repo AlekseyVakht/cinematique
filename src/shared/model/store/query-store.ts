@@ -1,8 +1,10 @@
 import { makeAutoObservable } from "mobx";
 
+import { QueryKey } from "../types";
+
 class QueryStore {
   query: string;
-  key: string;
+  key: QueryKey;
 
   constructor() {
     makeAutoObservable(this);
@@ -14,7 +16,7 @@ class QueryStore {
     this.query = param;
   }
 
-  setKey(key: string) {
+  setKey(key: QueryKey) {
     this.key = key;
   }
 }
