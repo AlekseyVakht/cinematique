@@ -11,6 +11,10 @@ class PopupStore {
   changeIsOpened() {
     this.isOpened = !this.isOpened;
   }
+
+  setIsClose() {
+    this.isOpened = false;
+  }
 }
 
 export const popupStore = new PopupStore();

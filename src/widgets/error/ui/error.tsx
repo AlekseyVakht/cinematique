@@ -5,8 +5,8 @@ import styles from "./error.module.scss";
 
 type ErrorProps = {
   text: string;
-  route: string;
-  link: string;
+  route?: string;
+  link?: string;
 };
 
 export function Error(props: ErrorProps) {
@@ -14,7 +14,7 @@ export function Error(props: ErrorProps) {
   return (
     <section className={styles.error}>
       <ErrorText>{text}</ErrorText>
-      <LinkTab route={route} text={link} />
+      {route && <LinkTab route={route} text={link} />}
     </section>
   );
 }

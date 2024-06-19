@@ -31,6 +31,7 @@ export const Search = observer(() => {
     const query = queryString.stringify({ query: data.name });
     queryStore.setQuery(query);
     queryStore.setKey("byName");
+    popupStore.setIsClose();
     setValue("name", "");
     console.log(queryStore.query);
   };

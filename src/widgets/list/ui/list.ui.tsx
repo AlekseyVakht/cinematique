@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import clsx from "clsx";
 
 import { Card } from "@/entities/movie";
 import { GetMore } from "@/features/pagination";
@@ -8,17 +7,15 @@ import { ResponseProps, favouriteStore } from "@/shared/model";
 import { useGetMovies } from "@/shared/lib";
 import { Loader } from "@/shared/ui/loader";
 
+import { Page404 } from "@/pages/page-404";
+
 import { Page } from "@/shared/model";
-import { queryStore } from "@/shared/model/store";
+import { queryStore } from "@/shared/model";
 
 import styles from "./list.module.scss";
 
 export const List = observer(() => {
   const { pathname } = useLocation();
-  const gridClassName = clsx(
-    styles.grid,
-    pathname !== "/" && styles.grid_favourites,
-  );
 
   const { data, fetchNextPage, isFetchingNextPage, isLoading, hasNextPage } =
     useGetMovies({ key: queryStore.key, query: queryStore.query });
@@ -49,10 +46,20 @@ export const List = observer(() => {
     );
   };
 
-  return (
-    <section className={styles.list}>
-      <ul className={gridClassName}>{dataForRender}</ul>
-      <MoreButton />
-    </section>
-  );
+  const RenderContent = () => {
+    return (
+      <>
+        {content[0].length !== 0 ? (
+          <section className={styles.list}>
+            <ul className={styles.grid}>{dataForRender}</ul>
+            <MoreButton />
+          </section>
+        ) : (
+          <Page404 />
+        )}
+      </>
+    );
+  };
+
+  return <RenderContent />;
 });

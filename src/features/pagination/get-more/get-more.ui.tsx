@@ -1,7 +1,11 @@
 import { Button } from "@/shared/ui/button";
 import { Icon } from "@/shared/ui/icon";
 
-export function GetMore({ onClick }) {
+interface GetMoreProps {
+  onClick: () => void;
+}
+
+export function GetMore({ onClick }: GetMoreProps) {
   const handleClick = () => {
     onClick();
   };

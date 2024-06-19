@@ -1,7 +1,7 @@
 import styles from "./filters.module.scss";
 
-import { queryStore } from "@/shared/model/store";
-import { popupStore } from "@/shared/model/store";
+import { queryStore, popupStore } from "@/shared/model";
+import { SubmitData } from "@/shared/model";
 import { FiltersPopup } from "@/shared/ui/filters-popup";
 import { Selector } from "@/shared/ui/inputs/selector";
 import { GenreButton } from "@/shared/ui/genre";

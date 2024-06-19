@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { FetchArgs } from "../model";
+
 interface IApi {
   baseUrl: string;
   headers: { [key: string]: string };
@@ -11,11 +13,6 @@ interface RequestArgs {
   filters?: string;
   limit?: number;
 }
-
-interface FetchKeys {
-  key: "films" | "filtered" | "byName";
-}
-
 class Api {
   private _baseUrl: string;
 
@@ -26,7 +23,7 @@ class Api {
     this._headers = headers;
   }
 
-  fetchChanger(args: FetchKeys) {
+  fetchChanger(args: FetchArgs) {
     const { key, query, pageParam } = args;
     if (key === "films") {
       return this.getMovies({ pageParam });
@@ -41,7 +38,7 @@ class Api {
 
   async getMovies<Page>({ pageParam }: RequestArgs): Promise<Page> {
     const response = await axios.get<Page>(
-      `${this._baseUrl}/movie?limit=10&lists=top500`,
+      `${this._baseUrl}/movie?limit=1&lists=top500`,
       {
         params: { page: pageParam },
         headers: this._headers,

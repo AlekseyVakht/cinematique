@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 
-import { ResponseProps } from "@/entities/movie";
+import { ResponseProps } from "@/shared/model";
 
 import { AddToFavourite } from "@/features/movie";
 

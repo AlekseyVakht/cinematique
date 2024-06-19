@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 type LinkTabProps = {
   route: string;
-  text: string;
+  text?: string;
 };
 
 export function LinkTab(props: LinkTabProps) {
