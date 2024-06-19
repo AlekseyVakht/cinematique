@@ -5,7 +5,7 @@ import { Error } from "@/widgets/error";
 
 import { favouriteStore } from "@/shared/model";
 
-const RenderSection = () =>
+const RenderSection = observer(() =>
   favouriteStore.favourites.length === 0 ? (
     <Error
       text="Здесь пока ничего нет, но мы можем исправить это"
@@ -14,7 +14,8 @@ const RenderSection = () =>
     />
   ) : (
     <List />
-  );
+  ),
+);
 
 export const Favourites = observer(() => {
   return <RenderSection />;

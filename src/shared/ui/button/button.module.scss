@@ -1,5 +1,5 @@
 @use "@/shared/assets/fonts/fonts.scss" as *;
-
+@use '@/shared/ui/globals/filter-tab-styles.scss' as *;
 .base {
   background-color: transparent;
   display: flex;
@@ -11,10 +11,7 @@
 }
 
 .button {
-  box-sizing: border-box;
-  width: 120px;
-  height: 42px;
-  border-radius: 32px;
+  @include base-tab();
+  background-color: transparent;
   border: 1px solid var(--base-ui-color);
-  @include constructor(var(--montserrat-regular), 12px);
 }

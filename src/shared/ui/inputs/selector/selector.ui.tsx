@@ -14,10 +14,8 @@ export const Selector = forwardRef(function Selector(
   { options, data, register }: SelectorProps,
   ref,
 ) {
-  console.log(ref);
   return (
-    <select className={styles.selection} {...register(data)}>
-      <option selected disabled defaultValue="-" />
+    <select className={styles.selection} ref={ref} {...register(data)}>
       {options.map((item) => (
         <option key={`${data}-${item}`} value={item}>
           {item}

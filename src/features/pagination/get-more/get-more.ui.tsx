@@ -1,10 +1,12 @@
 import { Button } from "@/shared/ui/button";
 import { Icon } from "@/shared/ui/icon";
-import { pageCounter } from "@/shared/lib";
 
-export function GetMore() {
+export function GetMore({ onClick }) {
+  const handleClick = () => {
+    onClick();
+  };
   return (
-    <Button onClick={() => pageCounter.incrementPage()}>
+    <Button onClick={handleClick}>
       <Icon img="more" size="big" />
     </Button>
   );

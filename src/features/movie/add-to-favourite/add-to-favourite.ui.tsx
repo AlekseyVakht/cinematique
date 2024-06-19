@@ -1,8 +1,9 @@
+import { observer } from "mobx-react-lite";
+
+import { favouriteStore, ResponseProps } from "@/shared/model";
+
 import { Button } from "@/shared/ui/button";
 import { Icon } from "@/shared/ui/icon";
-import { ResponseProps } from "@/entities/movie";
-import { favouriteStore } from "@/entities/movie";
-import { observer } from "mobx-react-lite";
 
 export const AddToFavourite = observer(function AddToFavourite({
   data,

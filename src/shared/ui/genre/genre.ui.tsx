@@ -13,10 +13,9 @@ export const GenreButton = forwardRef(function GenreButton(
   { text, register }: GenreButtonProps,
   ref,
 ) {
-  console.log(ref);
   return (
     <label className={styles["custom-checkbox"]}>
-      <input type="checkbox" value={text} {...register("genre")} />
+      <input type="checkbox" value={text} ref={ref} {...register("genre")} />
       <span>
         <p className={styles.text}>{text}</p>
       </span>

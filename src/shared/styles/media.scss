@@ -1,0 +1,8 @@
+@mixin adaptive-width {
+  @media screen and (max-width: 1480px) {
+    width: var(--medium-width);
+  }
+  @media screen and (max-width: 768px) {
+    width: var(--mobile-width);
+  }
+}

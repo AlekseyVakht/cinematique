@@ -1,0 +1,138 @@
+@use "@/shared/assets/fonts/fonts.scss" as *;
+@use "@/shared/styles/media.scss" as *;
+.card {
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: var(--base-border-radius);
+  width: 100%;
+  margin: 0 auto;
+  height: 600px;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 5, 1) 0%,
+    rgba(13, 13, 13, 1) 35%
+  );
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @include adaptive-width();
+  @media screen and (max-width: 768px) {
+    height: 468px;
+  }
+  @media screen and (max-width: 690px) {
+    flex-direction: column-reverse;
+    min-height: 100vh;
+  }
+  // @media screen and (max-width: 320px) {
+  //   max-height: 800px;
+  // }
+}
+
+.poster_container {
+  border-radius: var(--base-border-radius);
+  overflow: hidden;
+  @media screen and (max-width: 690px) {
+    width: 100%;
+  }
+}
+
+.poster {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  @media screen and (max-width: 560px) {
+    padding: 16px;
+  }
+}
+
+.name {
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  @include constructor(var(--montserrat-regular), 48px);
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+  }
+}
+
+.base_info {
+  margin-top: 24px;
+  min-height: 48px;
+  @include constructor(
+    var(--montserrat-extralight),
+    18px,
+    var(--base-ui-color-active)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (max-width: 890px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 425px) {
+    margin-top: 8px;
+  }
+}
+
+.aligner {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  @media screen and (max-width: 890px) {
+    margin-left: auto;
+  }
+}
+
+.duration {
+  padding: 4px;
+  box-sizing: border-box;
+  background-color: var(--widget-background);
+  border-radius: 4px;
+}
+
+.info {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+}
+
+.genres {
+  flex-wrap: wrap;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  @media screen and (max-width: 890px) {
+    flex-direction: column-reverse;
+    gap: 4px;
+    align-items: flex-start;
+  }
+}
+
+.genres_item {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.description {
+  margin-top: 48px;
+  @include constructor(var(--montserrat-extralight), 16px);
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 425px) {
+    margin-top: 24px;
+  }
+}

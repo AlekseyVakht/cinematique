@@ -1,18 +1,37 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import styles from "./filters-popup.module.scss";
 
 import clsx from "clsx";
+import { observer } from "mobx-react-lite";
+
+import { popupStore } from "@/shared/model/store";
 
 type FiltersProps = {
   children: ReactNode;
   opened: boolean;
+  onSubmit: () => void;
 };
 
-export function FiltersPopup(props: FiltersProps) {
-  const { opened, children } = props;
+export const FiltersPopup = observer((props: FiltersProps) => {
+  const { opened, children, onSubmit } = props;
+  useEffect(() => {
+    const handlePressEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        popupStore.changeIsOpened();
+      }
+    };
+    document.addEventListener("keydown", handlePressEsc);
+    return () => {
+      document.removeEventListener("keydown", handlePressEsc);
+    };
+  }, []);
+
   return (
-    <div className={clsx(styles.container, opened && styles.opened)}>
+    <form
+      onSubmit={onSubmit}
+      className={clsx(styles.container, opened && styles.opened)}
+    >
       {children}
-    </div>
+    </form>
   );
-}
+});

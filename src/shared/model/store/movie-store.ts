@@ -8,9 +8,10 @@ class MovieStore {
     makeAutoObservable(this);
   }
 
-  // setMovies(movies) {
-  //   this.movies = [...this.movies, ...movies];
-  // }
+  public setMovies(movies) {
+    this.movies = [...this.movies, ...movies];
+    console.log(movies);
+  }
 }
 
 export const movieStore = new MovieStore();

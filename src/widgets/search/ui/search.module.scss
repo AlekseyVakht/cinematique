@@ -1,7 +1,7 @@
 @use "@/shared/assets/fonts/fonts.scss" as *;
 
 .search {
-  margin: 50px auto;
+  margin: 50px auto 0;
   position: relative;
   z-index: 5;
 }
@@ -14,14 +14,9 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
-
-.filters {
-  gap: 10px;
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  @media screen and (max-width: 768px) {
+    width: var(--mobile-width);
+  }
 }
 
 .controls {
@@ -31,23 +26,4 @@
   gap: 10px;
   right: 10px;
   z-index: 3;
-}
-
-.selections {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.item {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.label {
-  width: 112px;
-  @include constructor(var(--montserrat-extralight), 12px);
 }

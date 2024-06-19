@@ -8,5 +8,10 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  @include constructor(var(--montserrat-extralight), 20px);
+  @include constructor(var(--montserrat-extralight), 18px);
+  @media screen and (max-width: 768px) {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
 }

@@ -1,15 +1,33 @@
 .list {
   margin: 50px auto 0;
+  width: 100%;
 }
 
 .grid {
   display: grid;
   gap: 20px;
   width: 100%;
-  margin: 0;
-  grid-template-columns: repeat(auto-fill, 260px);
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-content: center;
   list-style: none;
   padding: 0;
+  @media screen and (max-width: 1480px) {
+    grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+    width: var(--medium-width);
+  }
+  @media screen and (max-width: 500px) {
+    width: var(--mobile-width);
+    grid-template-columns: 282px;;
+  }
+}
+
+.grid_favourites {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 272px));
+  justify-content: flex-start;
+  @media screen and (max-width: 1200px) {
+    justify-content: center;
+  }
 }
 
 .more {

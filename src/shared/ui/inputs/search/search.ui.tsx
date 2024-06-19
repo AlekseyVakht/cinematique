@@ -9,16 +9,18 @@ type SearchProps = {
 };
 
 export const SearchInput = forwardRef(function SearchInput(
-  { register }: SearchProps,
+  props: SearchProps,
   ref,
 ) {
-  console.log(ref);
+  const { register, ...other } = props;
   return (
     <input
       className={styles.search}
       maxLength={70}
       type="text"
+      ref={ref}
       {...register("name")}
+      {...other}
     />
   );
 });

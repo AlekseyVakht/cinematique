@@ -1,20 +1,23 @@
 @use "@/shared/assets/fonts/fonts.scss" as *;
 
 @mixin base-tab {
-  @include constructor(var(--montserrat-extralight), 14px);
+  @include constructor(var(--montserrat-extralight), 12px);
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   text-align: center;
   background-color: var(--widget-background);
-  padding: 10px;
-  width: 106px;
-  height: 50px;
+  padding: 6px;
+  
+  height: 26px;
   border-radius: 8px;
   border: 0;
   transition: background-color 0.4s ease;
   &:hover {
     background-color: var(--base-ui-color);
   }
+  // @media screen and (max-width: 980px) {
+  //   font-size: 12px;
+  // }
 }

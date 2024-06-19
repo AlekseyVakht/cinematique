@@ -5,6 +5,17 @@ interface IApi {
   headers: { [key: string]: string };
 }
 
+interface RequestArgs {
+  pageParam: number;
+  queryParam?: string;
+  filters?: string;
+  limit?: number;
+}
+
+interface FetchKeys {
+  key: "films" | "filtered" | "byName";
+}
+
 class Api {
   private _baseUrl: string;
 
@@ -15,20 +26,53 @@ class Api {
     this._headers = headers;
   }
 
-  async getMovies<T>(page = 1): Promise<T> {
-    const response = await axios.get<T>(
-      `${this._baseUrl}/movie?page=${page}&limit=50&isSeries=false&notNullFields=name&lists=top250`,
+  fetchChanger(args: FetchKeys) {
+    const { key, query, pageParam } = args;
+    if (key === "films") {
+      return this.getMovies({ pageParam });
+    }
+    if (key === "filtered") {
+      return this.getMovieByParams({ pageParam, filters: query });
+    }
+    if (key === "byName") {
+      return this.getMovieByName({ pageParam, queryParam: query });
+    }
+  }
+
+  async getMovies<Page>({ pageParam }: RequestArgs): Promise<Page> {
+    const response = await axios.get<Page>(
+      `${this._baseUrl}/movie?limit=10&lists=top500`,
       {
+        params: { page: pageParam },
         headers: this._headers,
       },
     );
+    // movieStore.setMovies(response.data.docs);
     return response.data;
   }
 
-  async getMovieByParams<T>(query: string): Promise<T> {
-    const response = await axios.get(`${this._baseUrl}/movie?${query}`, {
+  async getMovieByParams<Page>({
+    pageParam,
+    filters,
+  }: RequestArgs): Promise<Page> {
+    const response = await axios.get(`${this._baseUrl}/movie?${filters}`, {
+      params: { page: pageParam },
       headers: this._headers,
     });
+    return response.data;
+  }
+
+  async getMovieByName<Page>({
+    pageParam,
+    queryParam,
+  }: RequestArgs): Promise<Page> {
+    const response = await axios.get(
+      `${this._baseUrl}/movie/search?${queryParam}`,
+      {
+        params: { page: pageParam },
+        headers: this._headers,
+      },
+    );
     return response.data;
   }
 

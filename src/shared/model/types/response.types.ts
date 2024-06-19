@@ -8,3 +8,11 @@ export type ResponseProps = {
   year: number;
   genres: { name: string }[];
 };
+
+export interface Page {
+  docs: ResponseProps[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}

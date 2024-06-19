@@ -1,19 +1,23 @@
 import { useLocation } from "react-router-dom";
 
-import { FilmCard } from "@/widgets/film-card";
+import { FilmCard } from "@/entities/movie";
+
+import { Page404 } from "@/pages/page-404";
 
 import { ResponseProps } from "@/shared/model";
 import { useGetMovieById } from "@/shared/lib";
+
+import { Loader } from "@/shared/ui/loader";
 
 import styles from "./film.module.scss";
 
 export const Film = () => {
   const { state } = useLocation();
-  const { data, isLoading } = useGetMovieById(state);
+  const { data, isLoading, isError } = useGetMovieById(state);
 
   const response = data as ResponseProps;
-
-  if (isLoading) return <p>loadgin...</p>;
+  if (isError) return <Page404 />;
+  if (isLoading) return <Loader />;
 
   console.log(data);
 

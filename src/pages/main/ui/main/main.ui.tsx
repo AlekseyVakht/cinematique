@@ -1,12 +1,12 @@
 import styles from "./main.module.scss";
 
 import { List } from "@/widgets/list";
-import { Search } from "@/widgets/search";
+import { SearchSection } from "@/widgets/search-section";
 
 export function Main() {
   return (
     <main className={styles.main}>
-      <Search />
+      <SearchSection />
       <List />
     </main>
   );

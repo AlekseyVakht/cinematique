@@ -7,6 +7,8 @@ import { AddToFavourite } from "@/features/movie";
 import { Rating } from "@/shared/ui/rating";
 import { getRating } from "@/shared/lib";
 
+import noImagePath from "@/shared/assets/images/no-image.png";
+
 import styles from "./film-card.module.scss";
 
 export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
@@ -19,6 +21,7 @@ export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
     movieLength,
     genres,
   } = data;
+
   return (
     <div className={styles.card}>
       <div className={styles.content}>
@@ -26,22 +29,32 @@ export const FilmCard = observer(({ data }: { data: ResponseProps }) => {
         <div className={styles.base_info}>
           <div className={styles.info}>
             <p>{year}</p>
-            <Rating value={getRating(kp)} />
+            <div className={styles.aligner}>
+              <Rating value={getRating(kp)} />
+              <AddToFavourite data={data} />
+            </div>
           </div>
-          <div className={styles.info}>
-            {genres.map((item: { name: string }) => (
-              <p key={`genre-${item.name}`}>{item.name}</p>
-            ))}
+          <div className={styles.genres}>
+            <div className={styles.genres_item}>
+              {genres.map((item: { name: string }) => (
+                <p key={`genre-${item.name}`}>{item.name}</p>
+              ))}
+            </div>
+
             <p className={styles.duration}>{`${movieLength} мин.`}</p>
           </div>
         </div>
-        <div className={styles.description}>{description}</div>
-        <div className={styles.controls}>
-          <AddToFavourite data={data} />
-        </div>
+        <p className={styles.description}>{description}</p>
+        {/* <div className={styles.controls}>
+          
+        </div> */}
       </div>
       <div className={styles.poster_container}>
-        <img src={poster?.url} className={styles.poster} />
+        <img
+          src={poster?.url ? poster.url : noImagePath}
+          className={styles.poster}
+          alt={name}
+        />
       </div>
     </div>
   );
