@@ -32,7 +32,7 @@ class Api {
 
   async getMovies<Page>({ pageParam }: RequestArgs): Promise<Page> {
     const response = await axios.get<Page>(
-      `${this._baseUrl}/movie?limit=10&lists=top500`,
+      `${this._baseUrl}/movie?limit=50&lists=top500`,
       {
         params: { page: pageParam },
         headers: this._headers,
